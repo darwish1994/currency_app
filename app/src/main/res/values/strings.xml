@@ -20,4 +20,6 @@
     <string name="different_currency_error">Please select different Currency</string>
     <string name="amount_error">amount must be bigger than 0</string>
     <string name="historical_currency_title">Historical Currency</string>
+    <string name="popular_currencies">Popular Currencies Rate (%s)</string>
+    <string name="historical_currency">History Currency (%s) -> (%s)  </string>
 </resources>

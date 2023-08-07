@@ -2,28 +2,67 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/swipe_view"
     tools:context=".feature.historiccal.HistoricalDataFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/tv_history"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/historical_currency"
+            android:textColor="@color/colorAccent"
+            android:padding="16dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/currency_rate_rec"
+            android:id="@+id/rec_history"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/tv_history"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+           />
+
+        <TextView
+            android:id="@+id/tv_popular_currency"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/popular_currencies"
+            android:textColor="@color/colorAccent"
+            android:padding="16dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rec_history" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec_rate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toBottomOf="@+id/tv_popular_currency"
+            app:layout_constraintVertical_bias="0.0" />
         <ProgressBar
             android:id="@+id/progress_load"
             android:layout_width="wrap_content"

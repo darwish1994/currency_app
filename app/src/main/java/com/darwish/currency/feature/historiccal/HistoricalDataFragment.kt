@@ -22,30 +22,49 @@ class HistoricalDataFragment : Fragment(R.layout.fragment_historical_data) {
     private val viewModel by viewModels<HistoryViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.tvHistory.text = getString(R.string.historical_currency, arg.from,arg.to)
+        binding.tvPopularCurrency.text = getString(R.string.popular_currencies, arg.from)
+        // bind adapter
+        binding.recHistory.adapter = viewModel.currencyHistoryAdapter
+        binding.recRate.adapter = viewModel.currencyRateAdapter
+
+
+
         // observer view changes
         observe(viewModel.getViewState(), ::viewStateObserver)
-        // bind adapter
-        binding.currencyRateRec.adapter = viewModel.currencyRateAdapter
         // get history
-        loadData()
+        loadHistoryData()
+        loadRateCurrency()
 
         // swipe refresh listener
         binding.swipeView.setOnRefreshListener {
             binding.swipeView.isRefreshing = false
-            loadData()
+            loadHistoryData()
         }
 
     }
 
 
-    private fun loadData() = viewModel.getHistory(arg.from, arg.to)
+    private fun loadHistoryData() = viewModel.getHistory(arg.from, arg.to)
+    private fun loadRateCurrency() = viewModel.getPopularRate(arg.from)
+
     private fun viewStateObserver(it: HistoryViewStatue) {
         when (it) {
             is HistoryViewStatue.IsLoading -> binding.progressLoad.manageVisibility(it.data)
-            is HistoryViewStatue.ShowError -> DialogUtils.showErrorPopup(
+            is HistoryViewStatue.ShowErrorHistory -> DialogUtils.showErrorPopup(
                 context = requireActivity(),
                 retryListener = {
-                    loadData()
+                    loadHistoryData()
+                },
+                cancelListener = {},
+                error = it.data
+            )
+
+            is HistoryViewStatue.ShowErrorRate -> DialogUtils.showErrorPopup(
+                context = requireActivity(),
+                retryListener = {
+                    loadRateCurrency()
                 },
                 cancelListener = {},
                 error = it.data
