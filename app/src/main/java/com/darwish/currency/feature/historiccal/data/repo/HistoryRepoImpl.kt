@@ -29,4 +29,18 @@ class HistoryRepoImpl @Inject constructor(private val historyApi: HistoryApi) : 
             }
         }
     }
+
+    override suspend fun getOtherCurrencyRate(
+        base: String,
+        popularCurrencies: List<String>
+    ): Resource<List<CurrencyRate>> = safeApiCallGeneric {
+        historyApi.getCurrencyRate(
+            base = base,
+            symbols = popularCurrencies.joinToString(",")
+        ).rates.flatMap {rates->
+            rates.value.map {
+                CurrencyRate(date = "", currency = "$base => ${it.key}", rate = it.value)
+            }
+        }
+    }
 }
