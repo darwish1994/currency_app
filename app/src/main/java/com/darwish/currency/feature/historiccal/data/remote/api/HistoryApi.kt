@@ -14,4 +14,10 @@ interface HistoryApi {
         @Query("base") from: String,
         @Query("symbols") to: String
     ): CurrencySeriesResponse
+
+    @GET(ApiUrl.rate)
+    suspend fun getCurrencyRate(
+        @Query("base") base: String,
+        @Query("symbols") symbols: String
+    ): CurrencySeriesResponse
 }

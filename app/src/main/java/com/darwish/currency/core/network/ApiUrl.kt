@@ -4,4 +4,5 @@ object ApiUrl {
     const val symbols = "symbols"
     const val convert = "convert"
     const val history = "timeseries"
+    const val rate="latest"
 }
