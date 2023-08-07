@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/convertCurrencyFragment">
+
+    <fragment
+        android:id="@+id/convertCurrencyFragment"
+        android:name="com.darwish.currency.feature.convert.ConvertCurrencyFragment"
+        android:label="@string/convert_currency"
+        tools:layout="@layout/fragment_convert_currency" >
+        <action
+            android:id="@+id/action_convertCurrencyFragment_to_historicalDataFragment"
+            app:destination="@id/historicalDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historicalDataFragment"
+        android:name="com.darwish.currency.feature.historiccal.HistoricalDataFragment"
+        android:label="@string/historical_currency_title"
+        tools:layout="@layout/fragment_historical_data" >
+        <argument
+            android:name="from"
+            app:argType="string"
+            />
+        <argument
+            android:name="to"
+            app:argType="string"
+            />
+    </fragment>
+</navigation>

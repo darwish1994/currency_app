@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "457074547607",
+    "project_id": "currency-7f4d3",
+    "storage_bucket": "currency-7f4d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457074547607:android:95c05bd542ba123e15c2d2",
+        "android_client_info": {
+          "package_name": "com.darwish.currency"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457074547607-qsgjiuvntvsnvfm40n3lteji9stf32ko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBW_ZJaMKG35zs6S91F9U142onZ0Jr6CG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457074547607-qsgjiuvntvsnvfm40n3lteji9stf32ko.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

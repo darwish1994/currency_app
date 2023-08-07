@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0A7B9D</color>
+    <color name="colorPrimaryDark">#3DBDBC</color>
+    <color name="colorAccent">#242526</color>
+    <color name="black">#000000</color>
+    <color name="red">#F50000</color>
+    <color name="red_dark">#C2202D</color>
+    <color name="white">#fff</color>
+    <color name="background">#F2F3F7</color>
+    <color name="splash_background">#F7F7F7</color>
+    <color name="header">#3DBDBC</color>
+    <color name="gray">#A4A4A4</color>
+    <color name="pelorous">#3DBDBC</color>
+    <color name="blue_chill">#0B83A8</color>
+    <color name="text">#4E4E4E</color>
+    <color name="gray_title_color">#515151</color>
+    <color name="order_details">#9A9A9A</color>
+    <color name="border">#C4C4C4</color>
+    <color name="checkout_text_color">#2E2E2E</color>
+    <color name="times_button_bg">#EBEAEA</color>
+    <color name="order_summary_values_color">#606060</color>
+
+
+</resources>
+
