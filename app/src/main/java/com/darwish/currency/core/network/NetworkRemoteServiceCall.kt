@@ -34,7 +34,7 @@ interface NetworkRemoteServiceCall {
                         )
                     )
 
-                    else -> Resource.Error(RequestError.ResponseError("SomeTHING Wrong try again"))
+                    else -> Resource.Error(RequestError.ResponseError(throwable.message?:"SomeTHING Wrong try again"))
 
                 }
             }

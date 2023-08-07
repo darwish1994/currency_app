@@ -14,7 +14,9 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
+import kotlin.time.Duration.Companion.seconds
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -37,6 +39,10 @@ class NetworkModule {
     @Singleton
     fun provideOKHTTPInstance(interceptor: ResponseInterceptor): OkHttpClient {
         val httpClient = OkHttpClient().newBuilder()
+            .callTimeout(30,TimeUnit.SECONDS)
+            .writeTimeout(30,TimeUnit.SECONDS)
+            .readTimeout(30,TimeUnit.SECONDS)
+            .connectTimeout(30,TimeUnit.SECONDS)
             .addInterceptor(interceptor)
 
         if (BuildConfig.DEBUG) {

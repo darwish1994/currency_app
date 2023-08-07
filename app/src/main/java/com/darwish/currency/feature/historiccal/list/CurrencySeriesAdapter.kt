@@ -26,7 +26,6 @@ class CurrencySeriesAdapter : RecyclerView.Adapter<CurrencySeriesAdapter.RateVie
         fun bind(item: CurrencyRate) {
             layout.dateTv.text = item.date
             layout.rateTv.text = item.rate.toString()
-            layout.currencyTv.text=item.currency
         }
 
     }

@@ -21,11 +21,11 @@ class HistoryRepoImpl @Inject constructor(private val historyApi: HistoryApi) : 
             from = from,
             to = to,
             endDate = Date().formatToServerDateDefaults(),
-            startDate= Date().addDays(-1 * lastDays).formatToServerDateDefaults()
-        ).rates.flatMap {rates->
-            val date= rates.key
+            startDate = Date().addDays(-1 * lastDays).formatToServerDateDefaults()
+        ).rates.flatMap { rates ->
+            val date = rates.key
             rates.value.map {
-                CurrencyRate(date = date, currency = "$from => ${it.key}", rate = it.value)
+                CurrencyRate(date = date, rate = it.value)
             }
         }
     }
@@ -37,10 +37,8 @@ class HistoryRepoImpl @Inject constructor(private val historyApi: HistoryApi) : 
         historyApi.getCurrencyRate(
             base = base,
             symbols = popularCurrencies.joinToString(",")
-        ).rates.flatMap {rates->
-            rates.value.map {
-                CurrencyRate(date = "", currency = "$base => ${it.key}", rate = it.value)
-            }
+        ).rates.map { rates ->
+            CurrencyRate(date = rates.key, rate = rates.value)
         }
     }
 }

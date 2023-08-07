@@ -1,6 +1,7 @@
 package com.darwish.currency.feature.historiccal.data.remote.api
 
 import com.darwish.currency.core.network.ApiUrl
+import com.darwish.currency.feature.historiccal.data.remote.response.CurrencyRateResponse
 import com.darwish.currency.feature.historiccal.data.remote.response.CurrencySeriesResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -19,5 +20,5 @@ interface HistoryApi {
     suspend fun getCurrencyRate(
         @Query("base") base: String,
         @Query("symbols") symbols: String
-    ): CurrencySeriesResponse
+    ): CurrencyRateResponse
 }
